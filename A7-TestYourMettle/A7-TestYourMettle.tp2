@@ -1432,7 +1432,7 @@ BEGIN @20 // Make "Spacewarp" available to stores
 
   LAF INSTALL_SPACEWARP
   INT_VAR
-    priest_spell = 0
+ // priest_spell = 0
     mage_spell   = 1
     add_to_shops = 1
   END
