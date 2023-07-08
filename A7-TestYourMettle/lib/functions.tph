@@ -547,6 +547,12 @@ BEGIN
         END
     END
 
+//Olvyn's Spell Tool code initialization
+INCLUDE ~%MOD_FOLDER%/ClassSpellTool.TPA~
+
+//Olvyn's Spell Tool code to add spell to divine lists
+LAF ADD_CLASS_SPELL STR_VAR resref=~a7#spp1~ class_include=~{'CLERIC', 'DRUID', 'SHAMAN'}~ END
+
     ACTION_IF (mage_spell && NOT FILE_EXISTS_IN_GAME ~a7#spw1.spl~) BEGIN
       COPY ~%MOD_FOLDER%/spells/a7#spw1.spl~ ~override~
         SAY UNIDENTIFIED_DESC @2131  // Spacewarp (mage spell)
@@ -565,6 +571,9 @@ BEGIN
         COPY ~%MOD_FOLDER%/spells/%file%~ ~override~
       END
     END
+
+//Olvyn's Spell Tool code to add spell to arcane lists
+LAF ADD_CLASS_SPELL STR_VAR resref=~a7#spw1~ scroll=~a7#mscl2~ class_include=~{'BARD', 'MAGE_ALL', 'SORCERER'}~ END
 
     ACTION_IF (mage_spell && add_to_shops) BEGIN
       ACTION_FOR_EACH area IN ~ar0702~ ~ar5011~ ~ar5502~ ~ar6400~ BEGIN
